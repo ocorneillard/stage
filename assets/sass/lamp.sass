@@ -1,0 +1,48 @@
+.lamp 
+  position : relative
+  height : 20vh
+
+  .lamp-cable
+    position : absolute
+    width : 10px
+    height : 100px
+    background : #262A30
+    left : 50%
+    top : 30%
+    transform : translate(-50%, -50%)
+  .lamp-spot
+    position : absolute 
+    left : 50%
+    top : 50%
+    transform : translate(-50%, -50%)
+    width: 70px
+    height: 0px
+    border-bottom: 40px solid #262A30
+    border-left: 25px solid transparent
+    border-right: 25px solid transparent
+
+  .lamp-bulb
+    position : absolute
+    left : 50%
+    top : 60%
+    transform : translate(-50%, -50%)
+    width: 40px
+    height : 40px
+    background : white
+    filter: blur(3px)
+    z-index : -1
+    border-radius : 50%
+
+
+  .light
+    content : ""
+    position : absolute
+    display : block
+    background : #ffebe0
+    bottom : -1px
+    left : 50%
+    transform : translate(-50%, 0%)
+    width : 99vw
+    height : 71px
+    clip-path : polygon(0% 85%, 50% 0%, 100% 85%, 100% 100%, 0% 100% )
+    z-index : -2
