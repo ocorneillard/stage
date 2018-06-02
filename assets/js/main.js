@@ -124,7 +124,7 @@ window.onload = () => {
     screen.style.background = '#324D5C';
   }, 1250);
 
-  uiCtrl.addTypingEffect(document.querySelector('.screen'), uiCtrl.textC.screenBoot, 50, 30);
+  uiCtrl.addTypingEffect(screen, uiCtrl.textC.screenBoot, 50, 30);
 
 
   window.addEventListener("scroll", function(){
