@@ -57,7 +57,7 @@ function displayText() {
     starter.appendChild(create);
     let findDiv = document.querySelector(`.text-${countDiv}`);
     letters.forEach(letter => {
-      let rand = Math.floor(Math.random()*(60-10+1)+ 10);
+      let rand = Math.floor(Math.random()*(15-10+1)+ 10);
       if(a !== undefined) {
         if (randTest === undefined) {
           randTest = rand;
