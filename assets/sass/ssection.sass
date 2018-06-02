@@ -61,8 +61,6 @@
   width : 0%
   height : 5px
   background-color: #344F5E
-  animation : 1s ease line 
-  animation-fill-mode : forwards
 
 @keyframes line
   0%
@@ -78,8 +76,6 @@
   width : 5px
   height : 0%
   background-color: #344F5E
-  animation : 1s ease linea
-  animation-fill-mode : forwards
 
 @keyframes linea
   0%
@@ -95,8 +91,6 @@
   width : 0%
   height : 5px
   background-color: #344F5E
-  animation : 1s ease lineb
-  animation-fill-mode : forwards
 
 @keyframes lineb
   0%
@@ -112,8 +106,6 @@
   width : 5px
   height : 0%
   background-color: #344F5E
-  animation : 1s ease linea
-  animation-fill-mode : forwards
 
 .lined
   position : absolute
@@ -123,8 +115,15 @@
   width : 0%
   height : 5px
   background-color: #344F5E
-  animation : 1s ease line
-  animation-fill-mode : forwards
+
+.linee
+  position : absolute
+  z-index : -1
+  bottom : 25%
+  left : 30%
+  width : 0%
+  height : 5px
+  background-color: #344F5E
 
 .grid
   display : grid
@@ -149,12 +148,14 @@
   background-color : #344F5E
   // clip-path : polygon(0% 0%, 100% 15%, 100% 100%, 0% 100%)
 
-.innerText
+.ctext, .rtext, .utext, .dtext
   display : block
+  text-align : left
   height : 200px
   padding : 35px 35px 0 35px
 
 p
+  position : relative
   font-weight : 400
   margin-top : 100px
   width : 300px

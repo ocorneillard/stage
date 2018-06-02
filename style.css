@@ -7,7 +7,7 @@ body {
   font-size: 1.125em;
   font-weight: 700;
   background-image: linear-gradient(to right top, #e37b47, #ed986b, #f5b390, #fbcfb7, #ffebe0);
-  margin-right: 70px; }
+  margin-right: 0; }
 
 .sidebar {
   position: fixed;
@@ -15,13 +15,14 @@ body {
   width: 70px;
   padding: 0 0;
   height: 100vh;
-  background: white;
   z-index: 5;
+  background: rgba(255, 255, 255, 0.3);
   box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.2);
+  padding: 0 5px;
   transition: all 0.7s ease; }
   .sidebar ul {
-    text-align: center;
-    list-style-type: none; }
+    list-style-type: none;
+    transition: all 0.7s ease; }
     .sidebar ul li {
       padding-top: 20vh;
       transition: all 0.5s ease; }
@@ -35,8 +36,11 @@ body {
         box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.3);
         border-radius: 200px; }
 
-.sidebar:hover {
-  padding: 0 1%; }
+.enable--text {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  text-align: center; }
 
 .office {
   width: 100%;
@@ -201,9 +205,7 @@ body {
   bottom: 75%;
   width: 0%;
   height: 5px;
-  background-color: #344F5E;
-  animation: 1s ease line;
-  animation-fill-mode: forwards; }
+  background-color: #344F5E; }
 
 @keyframes line {
   0% {
@@ -217,9 +219,7 @@ body {
   left: 35%;
   width: 5px;
   height: 0%;
-  background-color: #344F5E;
-  animation: 1s ease linea;
-  animation-fill-mode: forwards; }
+  background-color: #344F5E; }
 
 @keyframes linea {
   0% {
@@ -233,9 +233,7 @@ body {
   left: 30%;
   width: 0%;
   height: 5px;
-  background-color: #344F5E;
-  animation: 1s ease lineb;
-  animation-fill-mode: forwards; }
+  background-color: #344F5E; }
 
 @keyframes lineb {
   0% {
@@ -249,9 +247,7 @@ body {
   right: 35%;
   width: 5px;
   height: 0%;
-  background-color: #344F5E;
-  animation: 1s ease linea;
-  animation-fill-mode: forwards; }
+  background-color: #344F5E; }
 
 .lined {
   position: absolute;
@@ -260,9 +256,16 @@ body {
   right: 0;
   width: 0%;
   height: 5px;
-  background-color: #344F5E;
-  animation: 1s ease line;
-  animation-fill-mode: forwards; }
+  background-color: #344F5E; }
+
+.linee {
+  position: absolute;
+  z-index: -1;
+  bottom: 25%;
+  left: 30%;
+  width: 0%;
+  height: 5px;
+  background-color: #344F5E; }
 
 .grid {
   display: grid;
@@ -283,12 +286,14 @@ body {
   padding: 0;
   background-color: #344F5E; }
 
-.innerText {
+.ctext, .rtext, .utext, .dtext {
   display: block;
+  text-align: left;
   height: 200px;
   padding: 35px 35px 0 35px; }
 
 p {
+  position: relative;
   font-weight: 400;
   margin-top: 100px;
   width: 300px;

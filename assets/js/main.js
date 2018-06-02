@@ -1,23 +1,59 @@
+const screen = document.querySelector('.screen');
+const starter = document.querySelector('.starter');
+const power = document.querySelector('.power');
+const light = document.querySelector('.light');
+
+const line = document.querySelector('.line');
+const lineA = document.querySelector('.linea');
+const lineB = document.querySelector('.lineb');
+const lineC = document.querySelector('.linec');
+const lineD = document.querySelector('.lined');
+const lineE = document.querySelector('.linee');
+
+const cText = document.querySelector('.ctext');
+const rText = document.querySelector('.rtext');
+const uText = document.querySelector('.utext');
+const dText = document.querySelector('.dtext');
+
+const sideBar = document.querySelector('.sidebar');
+const arrow = document.querySelector('.fa-arrow-left');
+const ul = document.querySelector('ul');
+
+let sideBarOn = false;
+let once = true;
 
 
 class UICtrl {
 
   constructor () {
 
-     this.UISelectors = {
-
-      buttonOn : '.power',
-      color : '.screen',
-      txt : '.starter',
-      cable : '.cable',
-
+     this.textC = {
       screenBoot : [
         "import Dorian Collier from 'Charleroi';",
         "import TelenetInnovationCenter from 'Woluwe-Saint-Lambert';",
         "post ('Adrian.zochowski@telenetgroup.be','Hire me!') {",
         "return new Promise((resolve,reject)) => {",
         "fetch(url, ..."
-      ],      
+      ],
+      
+      create : [
+        "Learning C, C++ will make me a better Developer overall.",
+        "Python is the next step I'm looking for.",
+      ],
+
+      update : [
+        "IOT and IOTA fascinate me!"
+      ],
+
+      read : [
+        "I'd like to improve my knowledge of Javascript.",
+        "Promises, nodeJS, React will have no secret for me once I'll finish my training at Becode.",
+      ],
+
+      delete : [
+        'Learning as much as I can,',
+        "make my code cleaner than ever!"
+      ] 
     };
   }
 
@@ -73,31 +109,64 @@ class UICtrl {
     const scrollTop = window.pageYOffset;
     const trackLength = docHeight - winHeight;
     const pctScrolled = Math.floor(scrollTop/trackLength * 100);
-    console.log(pctScrolled);
     if (pctScrolled > pct) {
       return true;
     }
   }
 }
 
-const screen = new UICtrl();
+const uiCtrl = new UICtrl();
+
+window.onload = () => {
+  power.style.color = '#6EA674';
+  screen.style.background = '#4F7A91';
+  setTimeout(() => {
+    screen.style.background = '#324D5C';
+  }, 1250);
+
+  uiCtrl.addTypingEffect(document.querySelector('.screen'), uiCtrl.textC.screenBoot, 50, 30);
 
 
-screen.addTypingEffect(document.querySelector(screen.UISelectors.txt), screen.UISelectors.screenBoot, 50, 30);
+  window.addEventListener("scroll", function(){
+    if (uiCtrl.amountScrolled(49) === true && once === true) {
 
-let test = true;
+      line.style.animation = "1s ease line forwards";
+      uiCtrl.addTypingEffect(cText, uiCtrl.textC.create, 50, 30, 1000);
+      setTimeout(() => {
+        lineA.style.animation = "1s ease linea forwards";
+      }, 4000);
+      uiCtrl.addTypingEffect(rText, uiCtrl.textC.read, 50, 30, 4500);
+      setTimeout(() => {
+        lineB.style.animation = "1s ease lineb forwards";
+      }, 8500);
+      uiCtrl.addTypingEffect(uText, uiCtrl.textC.update, 50, 30, 9000);
+      setTimeout(() => {
+        lineC.style.animation = "1s ease linea forwards";
+        lineE.style.animation = "1s ease lineb forwards";
+      }, 10500);
+      uiCtrl.addTypingEffect(dText, uiCtrl.textC.delete, 50, 30, 11000);
+      setTimeout(() => {
+        lineD.style.animation = "1s ease line forwards";
+      }, 13000);
+      once = false;
+    }
+  }, false);
 
-window.addEventListener("scroll", function(){
-    if (screen.amountScrolled(70) === true && test === true) {
-      console.log('bonjour');
-      test = false;
-  }
-}, false);
+  const backHome = document.querySelector(".backhome");
+  backHome.addEventListener('click', (e) => {
 
-
-const backHome = document.querySelector(".backhome");
-backHome.addEventListener('click', (e) => {
-  backHome.classList = 'hi';
-  console.log(backHome);
-  e.preventDefault();
-});
+    if (sideBarOn === false) {
+      sideBar.style.width = '100%';
+      ul.style.textAlign = 'left';
+      arrow.style.transform = 'rotate(180deg)';
+      sideBar.style.background = "rgba(255,255,255,0.95)";
+      sideBarOn = true;
+    } else {
+      sideBar.style.width = '70px';
+      arrow.style.transform = 'rotate(0deg)';
+      sideBar.style.background = "rgba(255,255,255,0.3)";
+      sideBarOn = false;
+    }
+    e.preventDefault();
+  });
+}
