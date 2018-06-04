@@ -1,27 +1,28 @@
-const screen = document.querySelector('.screen');
-const starter = document.querySelector('.starter');
-const power = document.querySelector('.power');
-const light = document.querySelector('.light');
+const screen = document.querySelector('.screen'),
+starter = document.querySelector('.starter'),
+power = document.querySelector('.power'),
+light = document.querySelector('.light'),
 
-const line = document.querySelector('.line');
-const lineA = document.querySelector('.linea');
-const lineB = document.querySelector('.lineb');
-const lineC = document.querySelector('.linec');
-const lineD = document.querySelector('.lined');
-const lineE = document.querySelector('.linee');
+line = document.querySelector('.line'),
+lineA = document.querySelector('.linea'),
+lineB = document.querySelector('.lineb'),
+lineC = document.querySelector('.linec'),
+lineD = document.querySelector('.lined'),
+lineE = document.querySelector('.linee'),
 
-const cText = document.querySelector('.ctext');
-const rText = document.querySelector('.rtext');
-const uText = document.querySelector('.utext');
-const dText = document.querySelector('.dtext');
+cText = document.querySelector('.ctext'),
+rText = document.querySelector('.rtext'),
+uText = document.querySelector('.utext'),
+dText = document.querySelector('.dtext'),
 
-const sideBar = document.querySelector('.sidebar');
-const arrow = document.querySelector('.fa-arrow-left');
-const ul = document.querySelector('ul');
+sideBar = document.querySelector('.sidebar'),
+arrow = document.querySelector('.fa-arrow-left'),
+ul = document.querySelector('ul'),
+backHome = document.querySelector(".backhome"),
+linkedin = document.querySelector('.linkedin');
 
 let sideBarOn = false;
 let once = true;
-
 
 class UICtrl {
 
@@ -31,9 +32,23 @@ class UICtrl {
       screenBoot : [
         "import Dorian Collier from 'Charleroi';",
         "import TelenetInnovationCenter from 'Woluwe-Saint-Lambert';",
-        "post ('Adrian.zochowski@telenetgroup.be','Hire me!') {",
-        "return new Promise((resolve,reject)) => {",
-        "fetch(url, ..."
+        "const TIC = new TelenetInnovationCenter();",
+        "const post = [{savior : 'Adrian.zochowski@telenetgroup.be', subject : 'Internship '}];",
+        "function createInternshipDemand(post) {",
+        "return new Promise((resolve,reject) => {",
+        "TIC.push(post);",
+        "const error = false;",
+        "if (!error) {",
+        "resolve();",
+        "} else {",
+        "reject('#hopenot');",
+        "}",
+        "createInternshipDemand(post)",
+        ".then(getResponseFromTIC)",
+        ".catch(function(err) {",
+        "const improve = `work harder on ${err}`;",
+        "});",
+        "confirm('Hi Telenet Innovation Center, will you resolve my promise ?');"
       ],
       
       create : [
@@ -47,7 +62,7 @@ class UICtrl {
 
       read : [
         "I'd like to improve my knowledge of Javascript.",
-        "Promises, nodeJS, React will have no secret for me once I'll finish my training at Becode.",
+        "Promise, nodeJS, React will have no secret for me once I'll finish my training at Becode.",
       ],
 
       delete : [
@@ -104,14 +119,37 @@ class UICtrl {
   }
 
   amountScrolled(pct) {
-    const winHeight = window.innerHeight;
-    const docHeight = document.body.scrollHeight;
-    const scrollTop = window.pageYOffset;
-    const trackLength = docHeight - winHeight;
-    const pctScrolled = Math.floor(scrollTop/trackLength * 100);
+    const winHeight = window.innerHeight,
+    docHeight = document.body.scrollHeight,
+    scrollTop = window.pageYOffset,
+    trackLength = docHeight - winHeight,
+    pctScrolled = Math.floor(scrollTop/trackLength * 100);
     if (pctScrolled > pct) {
       return true;
     }
+  }
+
+  smoothScrollTo(endY, duration = 400) {
+    const startY = window.pageYOffset,
+    distanceY = endY - startY,
+    startTime = new Date().getTime();
+
+    const easeInOut = (time, from, distance, duration) => {
+      if ((time /= duration / 2) < 1) {
+        return distance / 2 * time * time * time * time + from;
+      } else {
+        return -distance / 2 * ((time -= 2) * time * time * time - 2) + from;
+      }
+    }
+
+    const timer = setInterval(() => {
+      const time = new Date().getTime() - startTime,
+      newY = easeInOut(time, startY, distanceY, duration);
+      if (time >= duration) {
+        clearInterval(timer);
+      }
+      scrollTo(0, newY);
+    }, 1000/60);
   }
 }
 
@@ -124,7 +162,19 @@ window.onload = () => {
     screen.style.background = '#324D5C';
   }, 1250);
 
-  uiCtrl.addTypingEffect(screen, uiCtrl.textC.screenBoot, 50, 30);
+  uiCtrl.addTypingEffect(screen, uiCtrl.textC.screenBoot, 20, 10);
+  const screenBtn = document.createElement('div');
+  screenBtn.className = "screen--btn";
+  screenBtn.innerHTML = "<i class='fas fa-arrow-right'></i>";
+  screen.appendChild(screenBtn);
+  uiCtrl.addTypingEffect(screenBtn, ['Continue'], 20, 10, 7000);
+  const mouseOver = document.querySelector('.screen--btn-1');
+  setTimeout((e) => {
+    mouseOver.style.visibility = 'visible';
+    mouseOver.style.cursor = 'pointer';
+  }, 6500);
+  screenArrow = document.querySelector('.fa-arrow-right');
+  screenArrow.style.animation = '7s ease rotateLeft forwards';
 
 
   window.addEventListener("scroll", function(){
@@ -152,21 +202,27 @@ window.onload = () => {
     }
   }, false);
 
-  const backHome = document.querySelector(".backhome");
+
   backHome.addEventListener('click', (e) => {
 
     if (sideBarOn === false) {
       sideBar.style.width = '100%';
       ul.style.textAlign = 'left';
-      arrow.style.transform = 'rotate(180deg)';
+      arrow.style.animation = '1s ease rotateRight forwards';
       sideBar.style.background = "rgba(255,255,255,0.95)";
       sideBarOn = true;
     } else {
       sideBar.style.width = '70px';
-      arrow.style.transform = 'rotate(0deg)';
+      arrow.style.animation = '1s ease rotateLeft forwards';
       sideBar.style.background = "rgba(255,255,255,0.3)";
       sideBarOn = false;
     }
     e.preventDefault();
   });
 }
+
+linkedin.addEventListener('click', (e) => {
+  uiCtrl.smoothScrollTo(window.innerHeight + (window.innerHeight / 5), 1000);
+  e.preventDefault();
+});
+

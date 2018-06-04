@@ -36,12 +36,18 @@ body {
         box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.3);
         border-radius: 200px; }
 
-.enable--text {
-  position: absolute;
-  left: 50%;
-  right: 50%;
-  text-align: center; }
-
+@keyframes rotateRight {
+  70% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(180deg); } }
+@keyframes rotateLeft {
+  0% {
+    transform: rotate(180deg); }
+  70% {
+    transform: rotate(180deg); }
+  100% {
+    transform: rotate(0deg); } }
 .office {
   width: 100%;
   height: 100vh;
@@ -98,6 +104,35 @@ body {
   clip-path: polygon(78% 0, 88% 65%, 100% 100%, 0 100%, 12% 65%, 23% 0);
   border-radius: 5px;
   z-index: 1; }
+
+.screen-6, .screen-15, .screen-16, .screen-18 {
+  padding-left: 20px; }
+
+.screen-7, .screen-8, .screen-9, .screen-11, .screen-13, .screen-17 {
+  padding-left: 40px; }
+
+.screen-10, .screen-12 {
+  padding-left: 60px; }
+
+.screen--btn {
+  display: inline;
+  transition: 2s all ease; }
+
+.screen--btn-1 {
+  text-align: center;
+  visibility: hidden;
+  margin-left: 85%;
+  background: white;
+  color: #344F5E;
+  border-radius: 3px;
+  border: 1px solid white;
+  padding: 7px;
+  display: inline;
+  transition: all 0.2s ease; }
+
+.screen--btn-1:hover {
+  background: #344F5E;
+  color: white; }
 
 .screen {
   width: 900px;

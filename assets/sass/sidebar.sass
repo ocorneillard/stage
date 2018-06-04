@@ -29,11 +29,20 @@
         box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.3)
         border-radius : 200px
 
-.enable--text
-  position : absolute
-  left : 50%
-  right : 50%
-  text-align: center
+
+@keyframes rotateRight
+  70%
+    transform : rotate(0deg)
+  100%
+    transform : rotate(180deg)
+
+@keyframes rotateLeft
+  0%
+    transform : rotate(180deg)
+  70%
+    transform : rotate(180deg)
+  100%
+    transform : rotate(0deg)
 
 
 
