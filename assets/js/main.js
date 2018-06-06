@@ -209,20 +209,34 @@ window.onload = () => {
       sideBar.style.width = '100%';
       ul.style.textAlign = 'left';
       arrow.style.animation = '1s ease rotateRight forwards';
-      sideBar.style.background = "rgba(255,255,255,0.95)";
+      sideBar.style.background = "rgba(255,255,255,1)";
       sideBarOn = true;
     } else {
       sideBar.style.width = '70px';
       arrow.style.animation = '1s ease rotateLeft forwards';
-      sideBar.style.background = "rgba(255,255,255,0.3)";
+      sideBar.style.background = "rgba(255,255,255,0.7)";
       sideBarOn = false;
     }
     e.preventDefault();
   });
+
+  mouseOver.addEventListener('click', (e) => {
+    let screenNumber = 1;
+    for (i = 1; i <= 19; i++) {
+      document.querySelector(`.screen-${i}`).remove();
+    }
+    document.querySelector('.screen--btn').remove();
+    setTimeout(() => {
+      document.querySelector('.home').removeAttribute('hidden');
+    }, 250);
+  });
+
+
+  linkedin.addEventListener('click', (e) => {
+    uiCtrl.smoothScrollTo(window.innerHeight + (window.innerHeight / 5), 1000);
+    e.preventDefault();
+  });
 }
 
-linkedin.addEventListener('click', (e) => {
-  uiCtrl.smoothScrollTo(window.innerHeight + (window.innerHeight / 5), 1000);
-  e.preventDefault();
-});
+
 
