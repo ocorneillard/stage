@@ -1,3 +1,4 @@
+let perf = performance.now();
 const screen = document.querySelector('.screen'),
 starter = document.querySelector('.starter'),
 power = document.querySelector('.power'),
@@ -16,10 +17,14 @@ uText = document.querySelector('.utext'),
 dText = document.querySelector('.dtext'),
 
 sideBar = document.querySelector('.sidebar'),
+sideBarContent = document.querySelector('.sidebar--content'),
 arrow = document.querySelector('.fa-arrow-left'),
 ul = document.querySelector('ul'),
 backHome = document.querySelector(".backhome"),
-linkedin = document.querySelector('.linkedin');
+linkedin = document.querySelector('.linkedin'),
+
+btnWhy = document.querySelector('.why'),
+btnWik = document.querySelector('.wik');
 
 let sideBarOn = false;
 let once = true;
@@ -209,12 +214,16 @@ window.onload = () => {
       sideBar.style.width = '100%';
       ul.style.textAlign = 'left';
       arrow.style.animation = '1s ease rotateRight forwards';
-      sideBar.style.background = "rgba(255,255,255,1)";
+      sideBar.style.background = "#e2e1e0";
+      sideBarContent.style.animation = "1s opacityOn ease forwards";
+      sideBarContent.style.visibility = "visible";
       sideBarOn = true;
     } else {
       sideBar.style.width = '70px';
       arrow.style.animation = '1s ease rotateLeft forwards';
-      sideBar.style.background = "rgba(255,255,255,0.7)";
+      sideBar.style.background = "rgba(255,255,255,1)";
+      sideBarContent.style.animation = "0.29s opacityOff ease forwards";
+      sideBarContent.style.visibility = "hidden";
       sideBarOn = false;
     }
     e.preventDefault();
@@ -228,15 +237,39 @@ window.onload = () => {
     document.querySelector('.screen--btn').remove();
     setTimeout(() => {
       document.querySelector('.home').removeAttribute('hidden');
+      document.querySelector('.home--title').style.animation = '1s fadeInRight forwards';
+      document.querySelector('.home--pres').style.animation = '2s fadeInLeft forwards';
+      document.querySelector('.home--teamwork').style.animation = '3s fadeInRight forwards';
+      document.querySelector('.why').style.animation = '3s btnAnim forwards';
     }, 250);
   });
 
 
-  linkedin.addEventListener('click', (e) => {
+  btnWhy.addEventListener('click', (e) => {
     uiCtrl.smoothScrollTo(window.innerHeight + (window.innerHeight / 5), 1000);
+    e.preventDefault();
+  });
+
+  btnWik.addEventListener('click', (e) => {
+    uiCtrl.smoothScrollTo((window.innerHeight * 2.05) + (window.innerHeight / 5), 1000);
     e.preventDefault();
   });
 }
 
-
-
+let perfb = (performance.now() - perf) / 1000;
+console.log("#############");
+console.log(`perf.now : ${perfb} seconds`);
+console.log("Improving performance is really important for me,");
+console.log("because everybody should have access to Internet, it gives to people an opportunity to emancipate themselves from inequality.");
+console.log("Moreover, it's important in IoT, since you have limited ressources.");
+console.log("#############");
+console.log('My goals for the next 2 months :');
+console.log('-Design pattern in Js, read Eloquent Javascript');
+console.log('-Being able to code from scratch a CRUD system with promises, async await,...');
+console.log('-NPM / SASS : correctly use the package.json and being efficient with node_modules');
+console.log('-Learn MongoDB for a project called Dorothy');
+console.log('-C++, being able to do OOP and understand how works pointer');
+console.log('-Being able to code in NodeJs as I code in PHP, understand how MVC could be used in node');
+console.log('-Keep learning !');
+console.log("#############");
+console.log('If you have any idea on what skills I should improve, don\'t hesitate to contact me !');

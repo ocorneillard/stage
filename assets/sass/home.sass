@@ -1,0 +1,94 @@
+button
+  border: none
+  font-family: inherit
+  font-size: inherit
+  color: inherit
+  background: none
+  cursor: pointer
+  padding: 25px 80px
+  display: inline-block
+  margin: 15px 30px
+  letter-spacing: 1px
+  font-weight: 700
+  outline: none
+  position: relative
+  -webkit-transition: all 0.25s
+  -moz-transition: all 0.25s
+  transition: all 0.25s
+  
+.home
+  text-align : center
+  padding-top : 10%
+
+.home--title
+  opacity : 0
+
+.home--pres
+  padding-top : 2%
+  opacity : 0
+
+.home--teamwork
+  padding-top : 2%
+  opacity : 0
+
+.home--btn
+  margin-top : 20%
+
+.btn
+  padding : 0.7em 2em
+  border : none
+  border-radius : 1px
+  font-size : 1.125rem
+  font-weight : 800
+  border-radius : 3px
+  box-shadow: 0.3em 0.3em 0 0 white, inset 0.3em 0.3em 0 0 white
+
+  &:active
+    top : 2px
+  
+.why
+  opacity : 0
+  color : white
+  background : transparent
+  &:hover
+    background : white
+    color : #344F5E
+    box-shadow: 0 0 0 0 white, inset 6em 3.5em 0 0 white
+
+.wik
+  color : #344F5E
+  background: white
+  border : 1px solid #344F5E
+  &:hover
+    background : #344F5E
+    color : white
+    box-shadow: 0 0 0 0 #344F5E, inset 6em 3.5em 0 0 #344F5E
+
+.btngrid
+  margin-top: 90px
+
+@keyframes fadeInLeft
+  50%
+    opacity : 0
+    transform : translateX(-50px)
+  100%
+    opacity : 1
+    transform : translateX(0px)
+
+
+@keyframes fadeInRight
+  50%
+    opacity : 0
+    transform : translateX(50px)
+  100%
+    opacity : 1
+    transform : translateX(0px)
+
+@keyframes btnAnim
+  95%
+    opacity : 0
+    transform : scaleY(0)
+
+  100%
+    opacity : 1
+    transform : scaleY(1)
