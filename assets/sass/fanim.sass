@@ -23,3 +23,51 @@
   background: #344F5E
   pointer-events: none
   opacity: 0.2
+
+@media screen and (max-width: 1400px)
+  .screen
+    width: 90%
+    height: 70%
+  .screen::before
+    border: none
+  .office
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100% )
+  .sidebar
+    position : fixed
+    top: 0
+    height : 50px
+    padding : 10px 0 5px 0
+    width: 100vw
+
+    ul
+      
+
+    li
+      display: inline
+      margin-top: 5px
+      padding-left: 15vw
+
+      a
+        padding: 25px 20px 10px 20px
+  .grid
+    display : grid
+    grid-template-columns: 1fr 1fr
+    height : 80vh
+    padding : 0 15%
+    margin : 0
+  
+  .ctext, .rtext, .utext, .dtext
+    height : 150px
+
+  .lamp
+    height: 0vh
+    visibility: hidden
+
+  .sidebar--content
+    position: absolute
+    grid-template-columns: 1fr 1fr
+
+  .card1
+    grid-area: 4 / 1 / 5 / span 2
+    width: 100%
+    margin: 1rem

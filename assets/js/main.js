@@ -20,11 +20,12 @@ sideBar = document.querySelector('.sidebar'),
 sideBarContent = document.querySelector('.sidebar--content'),
 arrow = document.querySelector('.fa-arrow-left'),
 ul = document.querySelector('ul'),
-backHome = document.querySelector(".backhome"),
+backHome = document.querySelector(".backhome a"),
 linkedin = document.querySelector('.linkedin'),
 
 btnWhy = document.querySelector('.why'),
-btnWik = document.querySelector('.wik');
+btnWik = document.querySelector('.wik'),
+btnHireMe = document.querySelector('.hireme--end button');
 
 let sideBarOn = false;
 let once = true;
@@ -53,7 +54,7 @@ class UICtrl {
         ".catch(function(err) {",
         "const improve = `work harder on ${err}`;",
         "});",
-        "confirm('Hi Telenet Innovation Center, will you resolve my promise ?');"
+        "confirm('Will you resolve my promise ?');"
       ],
       
       create : [
@@ -186,23 +187,15 @@ window.onload = () => {
     if (uiCtrl.amountScrolled(49) === true && once === true) {
 
       line.style.animation = "1s ease line forwards";
-      uiCtrl.addTypingEffect(cText, uiCtrl.textC.create, 50, 30, 1000);
-      setTimeout(() => {
-        lineA.style.animation = "1s ease linea forwards";
-      }, 4000);
-      uiCtrl.addTypingEffect(rText, uiCtrl.textC.read, 50, 30, 4500);
-      setTimeout(() => {
-        lineB.style.animation = "1s ease lineb forwards";
-      }, 8500);
-      uiCtrl.addTypingEffect(uText, uiCtrl.textC.update, 50, 30, 9000);
-      setTimeout(() => {
-        lineC.style.animation = "1s ease linea forwards";
-        lineE.style.animation = "1s ease lineb forwards";
-      }, 10500);
-      uiCtrl.addTypingEffect(dText, uiCtrl.textC.delete, 50, 30, 11000);
-      setTimeout(() => {
-        lineD.style.animation = "1s ease line forwards";
-      }, 13000);
+      lineA.style.animation = "1s ease linea forwards";
+      lineB.style.animation = "1s ease lineb forwards";
+      lineC.style.animation = "1s ease linea forwards";
+      lineD.style.animation = "1s ease line forwards";
+      lineE.style.animation = "1s ease lineb forwards";
+      cText.style.animation = "1s ease opacity forwards";
+      rText.style.animation = "1s ease opacity forwards";
+      uText.style.animation = "1s ease opacity forwards";
+      dText.style.animation = "1s ease opacity forwards";
       once = false;
     }
   }, false);
@@ -211,20 +204,40 @@ window.onload = () => {
   backHome.addEventListener('click', (e) => {
 
     if (sideBarOn === false) {
-      sideBar.style.width = '100%';
-      ul.style.textAlign = 'left';
-      arrow.style.animation = '1s ease rotateRight forwards';
-      sideBar.style.background = "#e2e1e0";
-      sideBarContent.style.animation = "1s opacityOn ease forwards";
-      sideBarContent.style.visibility = "visible";
-      sideBarOn = true;
+      if (window.innerWidth < 1200) {
+        sideBar.style.height = '100%';
+        arrow.style.animation = '1s ease rotateRight forwards';
+        sideBar.style.background = "#e2e1e0";
+        sideBarContent.style.animation = "1s opacityOn ease forwards";
+        sideBarContent.style.visibility = "visible";
+        sideBarOn = true;
+
+      } else {
+        sideBar.style.width = '100%';
+        ul.style.textAlign = 'left';
+        arrow.style.animation = '1s ease rotateRight forwards';
+        sideBar.style.background = "#e2e1e0";
+        sideBarContent.style.animation = "1s opacityOn ease forwards";
+        sideBarContent.style.visibility = "visible";
+        sideBarOn = true;
+      }
     } else {
-      sideBar.style.width = '70px';
-      arrow.style.animation = '1s ease rotateLeft forwards';
-      sideBar.style.background = "rgba(255,255,255,1)";
-      sideBarContent.style.animation = "0.29s opacityOff ease forwards";
-      sideBarContent.style.visibility = "hidden";
-      sideBarOn = false;
+        if (window.innerWidth < 1200) {
+          sideBar.style.height = '50px';
+          arrow.style.animation = '1s ease rotateLeft forwards';
+          sideBar.style.background = "rgba(255,255,255,1)";
+          sideBarContent.style.animation = "0.29s opacityOff ease forwards";
+          sideBarContent.style.visibility = "hidden";
+          sideBarOn = false;
+
+        } else {
+        sideBar.style.width = '70px';
+        arrow.style.animation = '1s ease rotateLeft forwards';
+        sideBar.style.background = "rgba(255,255,255,1)";
+        sideBarContent.style.animation = "0.29s opacityOff ease forwards";
+        sideBarContent.style.visibility = "hidden";
+        sideBarOn = false;
+      }
     }
     e.preventDefault();
   });
@@ -254,13 +267,34 @@ window.onload = () => {
     uiCtrl.smoothScrollTo((window.innerHeight * 2.05) + (window.innerHeight / 5), 1000);
     e.preventDefault();
   });
+
+  btnHireMe.addEventListener('click', (e) => {
+    if (window.innerWidth < 1200) {
+      sideBar.style.height = '100%';
+      arrow.style.animation = '1s ease rotateRight forwards';
+      sideBar.style.background = "#e2e1e0";
+      sideBarContent.style.animation = "1s opacityOn ease forwards";
+      sideBarContent.style.visibility = "visible";
+      sideBarOn = true;
+      uiCtrl.smoothScrollTo((1), 1000);
+
+    } else {
+    sideBar.style.width = '100%';
+    ul.style.textAlign = 'left';
+    arrow.style.animation = '1s ease rotateRight forwards';
+    sideBar.style.background = "#e2e1e0";
+    sideBarContent.style.animation = "1s opacityOn ease forwards";
+    sideBarContent.style.visibility = "visible";
+    sideBarOn = true;
+    }
+  });
 }
 
 let perfb = (performance.now() - perf) / 1000;
 console.log("#############");
 console.log(`perf.now : ${perfb} seconds`);
 console.log("Improving performance is really important for me,");
-console.log("because everybody should have access to Internet, it gives to people an opportunity to emancipate themselves from inequality.");
+console.log("because everybody should have access to Internet, it gives people an opportunity to emancipate themselves from inequality.");
 console.log("Moreover, it's important in IoT, since you have limited ressources.");
 console.log("#############");
 console.log('My goals for the next 2 months :');

@@ -1,0 +1,23 @@
+{
+  "name": "telecom",
+  "version": "1.0.0",
+  "description": "internship",
+  "main": "index.js",
+  "scripts": {
+    "babel": "npx babel assets/js/main.js --watch --out-file assets/js/script-compiled.js --presets minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ocorneillard/stage.git"
+  },
+  "author": "dco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ocorneillard/stage/issues"
+  },
+  "homepage": "https://github.com/ocorneillard/stage#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-minify": "^0.4.3"
+  }
+}
